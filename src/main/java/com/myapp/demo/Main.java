@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Main {
-    public static String Main(String[] args){
+    public static void Main(String[] args){
         EmailSender email = new EmailSender("jim","hello");
         SmsSender sms = new SmsSender("pam","heyoo");
 
