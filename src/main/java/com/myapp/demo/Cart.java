@@ -1,9 +1,6 @@
 package com.myapp.demo;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Cart {
     private List<Product> productList;
@@ -19,10 +16,8 @@ public class Cart {
         productList.add(product);
     }
     public void removeProduct(Product product){
-        for(Product productIn: productList){
-            if (productIn.equals(product)){
-                productList.remove(productIn);
-            }
+        if (productList.contains(product)){
+            productList.remove(product);
         }
     }
     public Double getTotal(){
@@ -34,7 +29,26 @@ public class Cart {
     }
 
     public Optional<Product> getMostExpensive(){
-        return Optional.ofNullable(productList.stream().max(Comparator.comparing(Product::getPrice)).orElse(null));
-    }
+        return productList.stream()
+                .max(Comparator.comparing(Product::getPrice));    }
 
+}
+
+
+
+
+//Suppose you have:
+//
+//Map<Long, User> users
+//
+//How would you:
+//
+//add a user
+//get a user by ID
+//remove a user
+//
+//Write the code.
+
+public void addUser(Long id,User user){
+    users.put(id,user)
 }
