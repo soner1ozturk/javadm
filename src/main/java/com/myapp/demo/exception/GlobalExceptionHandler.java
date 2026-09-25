@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> hadnleException(Exception e){
+    public ResponseEntity<String> handleException(Exception e){
         return ResponseEntity.status(500).body("Something went wrong: " + e.getMessage());
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<String> handleProductNotFound(ProductNotFoundException e){
+        return ResponseEntity.status(404).body(e.getMessage());
     }
 }

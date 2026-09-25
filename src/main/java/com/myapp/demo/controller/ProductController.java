@@ -24,13 +24,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity getById(@PathVariable Long id){
-        Product product = productService.findById(id);
-
-        if (product == null){
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(product);
+        return ResponseEntity.ok(productService.findById(id));
     }
 
     @PostMapping

@@ -1,4 +1,5 @@
 package com.myapp.demo.service;
+import com.myapp.demo.exception.ProductNotFoundException;
 import com.myapp.demo.model.Product;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class ProductService {
         return products.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
     public Product create(Product product) {
