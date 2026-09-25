@@ -19,5 +19,9 @@ public class ProductService {
         return findAll().stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
     }
 
+    public Product create(Product product){
+        return new Product(4L,product.getName(),product.getPrice());
+    }
+
 
 }

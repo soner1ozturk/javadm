@@ -2,10 +2,7 @@ package com.myapp.demo.controller;
 import com.myapp.demo.model.Product;
 import com.myapp.demo.service.ProductService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +31,12 @@ public class ProductController {
         }
 
         return ResponseEntity.ok(product);
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> create(@RequestBody Product product){
+        Product created = productService.create(product);
+        return ResponseEntity.status(201).body(created);
     }
 
 
