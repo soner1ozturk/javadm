@@ -39,5 +39,22 @@ public class ProductController {
         return ResponseEntity.status(201).body(created);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product product){
+        Product updated = productService.update(id,product);
+        if(updated == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        boolean deleted = productService.delete(id);
+        if(!deleted){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.noContent().build();
+    }
 
 }

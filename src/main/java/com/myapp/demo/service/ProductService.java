@@ -23,5 +23,19 @@ public class ProductService {
         return new Product(4L,product.getName(),product.getPrice());
     }
 
+    public Product update(Long id, Product product){
+        Product existing = findById(id);
+        if(existing == null){
+            return null;
+        }
+        existing.setName(product.getName());
+        existing.setPrice(product.setPrice());
+        return exiting;
+    }
+
+    public boolean delete(Long id){
+        return products.removeIf(p -> p.getId().equals(id));
+    }
+
 
 }
