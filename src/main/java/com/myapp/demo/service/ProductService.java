@@ -27,8 +27,10 @@ public class ProductService {
                 .orElse(null);
     }
 
-    public Product create(Product product){
-        return new Product(4L,product.getName(),product.getPrice());
+    public Product create(Product product) {
+        Product created = new Product((long) (products.size() + 1), product.getName(), product.getPrice());
+        products.add(created);
+        return created;
     }
 
     public Product update(Long id, Product product){
