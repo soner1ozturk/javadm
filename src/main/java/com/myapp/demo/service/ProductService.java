@@ -36,9 +36,6 @@ public class ProductService {
 
     public Product update(Long id, Product product){
         Product existing = findById(id);
-        if(existing == null){
-            return null;
-        }
         existing.setName(product.getName());
         existing.setPrice(product.getPrice());
         return existing;
