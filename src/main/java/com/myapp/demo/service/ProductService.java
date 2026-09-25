@@ -4,7 +4,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public class ProductService {
-    public List<Product> getAll(){
+
+    public List<Product> findAll(){
         List<Product> products = List.of(
                 new Product(1L,"Keyboard",99.99),
                 new Product(2L,"Mouse",49.99),
@@ -12,4 +13,6 @@ public class ProductService {
         );
         return products;
     }
+
+
 }
