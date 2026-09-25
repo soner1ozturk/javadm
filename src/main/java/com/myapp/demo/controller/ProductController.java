@@ -21,14 +21,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Product> getAll(){
-        List<Product> products = productService.findAll();
-
-        if (products.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(products);
+    public ResponseEntity<List<Product>> getAll(){
+        return ResponseEntity.ok(productService.findAll());
     }
 
     @GetMapping("/{id}")
