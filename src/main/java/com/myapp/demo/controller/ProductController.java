@@ -23,5 +23,10 @@ public class ProductController {
         return productService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Product getById(@Pathvariable Long id){
+        return productService.findById(id);
+    }
+
 
 }

@@ -15,5 +15,9 @@ public class ProductService {
         return products;
     }
 
+    public Product findById(Long id){
+        return findAll().stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
+    }
+
 
 }
