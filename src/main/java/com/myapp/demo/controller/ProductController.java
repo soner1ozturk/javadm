@@ -1,6 +1,7 @@
 package com.myapp.demo.controller;
 import com.myapp.demo.model.Product;
 import com.myapp.demo.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +29,13 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> create(@RequestBody Product product){
+    public ResponseEntity<Product> create(@Valid @RequestBody Product product){
         Product created = productService.create(product);
         return ResponseEntity.status(201).body(created);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product product){
+    public ResponseEntity<Product> update(@PathVariable Long id, @Valid @RequestBody Product product){
         Product updated = productService.update(id,product);
         return ResponseEntity.ok(updated);
     }
