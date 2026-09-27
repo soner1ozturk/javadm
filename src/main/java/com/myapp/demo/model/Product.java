@@ -16,7 +16,7 @@ public class Product {
 
     public Product(Long id, String name, double price){
         this.id = id;
-        this.nam = name;
+        this.name = name;
         this.price = price;
     }
 
