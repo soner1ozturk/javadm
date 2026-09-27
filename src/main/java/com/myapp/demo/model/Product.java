@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Product {
 
     private Long id;
-    @NotBlank(message = "Name cannot be empty")
+    @NotBlank(message = "Name canno be empty")
     private String name;
     @Min(value = 0, message = "Price cannot be negative")
     private double price;
