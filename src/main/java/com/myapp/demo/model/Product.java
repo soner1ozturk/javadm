@@ -4,7 +4,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
+@Entit
 @Table(name = "products")
 public class Product {
 
