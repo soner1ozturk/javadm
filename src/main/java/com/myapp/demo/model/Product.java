@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
 
     private Long id;
