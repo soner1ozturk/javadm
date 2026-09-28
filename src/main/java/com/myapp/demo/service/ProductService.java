@@ -33,7 +33,7 @@ public class ProductService {
         Product existing = findById(id);
         existing.setName(product.getName());
         existing.setPrice(product.getPrice());
-        return existing;
+        return productRepository.save(existing);
     }
 
     public boolean delete(Long id){
