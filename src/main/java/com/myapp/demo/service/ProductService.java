@@ -37,7 +37,8 @@ public class ProductService {
     }
 
     public boolean delete(Long id){
-        return products.removeIf(p -> p.getId().equals(id));
+        findById(id);
+        productRepository.deleteById(id);
     }
 
 
