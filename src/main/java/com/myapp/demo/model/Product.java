@@ -10,9 +10,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Name cannot be empty")
+    @Column(nullable=false)
     private String name;
+
+
     @Min(value = 0, message = "Price cannot be negative")
+    @Column(nullable = false)
     private double price;
 
     public Product(Long id, String name, double price){
