@@ -2,19 +2,18 @@ package com.myapp.demo.service;
 import com.myapp.demo.exception.ProductNotFoundException;
 import com.myapp.demo.model.Product;
 import org.springframework.stereotype.Service;
+import com.myapp.demo.repository.ProductRepository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
 public class ProductService {
 
-    private final List<Product> products = new ArrayList<>();
+    private final ProductRepository productRepository;
 
-    public ProductService() {
-        products.add(new Product("Keyboard", 99.99));
-        products.add(new Product("Mouse", 49.99));
-        products.add(new Product("Monitor", 299.99));
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     public List<Product> findAll() {
