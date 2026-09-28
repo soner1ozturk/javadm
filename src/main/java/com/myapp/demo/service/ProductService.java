@@ -21,9 +21,7 @@ public class ProductService {
     }
 
     public Product findById(Long id) {
-        return products.stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst()
+        return productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
