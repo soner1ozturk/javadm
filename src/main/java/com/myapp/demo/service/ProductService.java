@@ -26,9 +26,7 @@ public class ProductService {
     }
 
     public Product create(Product product) {
-        Product created = new Product(product.getName(), product.getPrice());
-        products.add(created);
-        return created;
+        return productRepository.save(product);
     }
 
     public Product update(Long id, Product product){
