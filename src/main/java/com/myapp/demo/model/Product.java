@@ -20,8 +20,9 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
-    public Product(Long id, String name, double price){
-        this.id = id;
+
+    public Product(){};
+    public Product(String name, double price){
         this.name = name;
         this.price = price;
     }
