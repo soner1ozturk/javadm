@@ -36,7 +36,7 @@ public class ProductService {
         return productRepository.save(existing);
     }
 
-    public boolean delete(Long id){
+    public void delete(Long id){
         findById(id);
         productRepository.deleteById(id);
     }
