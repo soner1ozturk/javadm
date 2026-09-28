@@ -12,9 +12,9 @@ public class ProductService {
     private final List<Product> products = new ArrayList<>();
 
     public ProductService() {
-        products.add(new Product(1L, "Keyboard", 99.99));
-        products.add(new Product(2L, "Mouse", 49.99));
-        products.add(new Product(3L, "Monitor", 299.99));
+        products.add(new Product("Keyboard", 99.99));
+        products.add(new Product("Mouse", 49.99));
+        products.add(new Product("Monitor", 299.99));
     }
 
     public List<Product> findAll() {
@@ -29,7 +29,7 @@ public class ProductService {
     }
 
     public Product create(Product product) {
-        Product created = new Product((long) (products.size() + 1), product.getName(), product.getPrice());
+        Product created = new Product(product.getName(), product.getPrice());
         products.add(created);
         return created;
     }
