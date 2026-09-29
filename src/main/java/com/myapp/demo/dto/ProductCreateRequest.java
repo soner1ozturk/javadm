@@ -13,7 +13,7 @@ public class ProductCreateRequest {
 
     private Long categoryId;
 
-    public String getname(){return name;}
+    public String getName(){return name;}
     public double getPrice(){return price;}
     public Long getCategoryId(){return categoryId;}
 }
