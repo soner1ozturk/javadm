@@ -1,7 +1,7 @@
 package com.myapp.demo.service;
 
+import com.myapp.demo.dto.CategoryResponse;
 import com.myapp.demo.model.Category;
-import com.myapp.demo.model.Product;
 import org.springframework.stereotype.Service;
 import com.myapp.demo.repository.CategoryRepository;
 import java.util.List;
@@ -10,6 +10,10 @@ import java.util.List;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
+
+    private CategoryResponse toResponse(Category category){
+        return new CategoryResponse(category.getId(),category.getName());
+    }
     public CategoryService(CategoryRepository categoryRepository){
         this.categoryRepository = categoryRepository;
     }
