@@ -10,9 +10,6 @@ import java.util.List;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
-    //ok in this class we basically take our database and do operations on it
-    //we create the db
-    //then in our constructor we take it as a param
     public CategoryService(CategoryRepository categoryRepository){
         this.categoryRepository = categoryRepository;
     }
@@ -22,16 +19,17 @@ public class CategoryService {
 
     }
 
-    public boolean findById(Long id){
-        return categoryRepository.existsById(id);
+    public Category findById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
     }
 
     public Category create(Category category) {
         return categoryRepository.save(category);
     }
 
-    public Category update(Long id, Category category){
-        boolean existing = findById(id);
+    public Category update(Long id, Category category) {
+        Category existing = findById(id);
         existing.setName(category.getName());
         return categoryRepository.save(existing);
     }
