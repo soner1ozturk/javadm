@@ -2,8 +2,6 @@ package com.myapp.demo.dto;
 
 import com.myapp.demo.model.Product;
 
-import java.util.List;
-
 public class CategoryResponse {
     private Long id;
     private String name;
@@ -14,7 +12,5 @@ public class CategoryResponse {
     }
 
     public Long getId(){return id;}
-    public String getName(){return name;}
-    public List<Product> getProducts(){return products;}
-    public void setName(String name){this.name = name;}
-}
+    public String getName(){return name;}}
+
