@@ -20,12 +20,19 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 
     public Product(){};
     public Product(String name, double price){
         this.name = name;
         this.price = price;
     }
+
+    public Category getCategory(){return category;}
+    public void setCategory(Category category){this.category = category;}
 
     public Long getId(){return id;}
     public String getName(){return name;}
