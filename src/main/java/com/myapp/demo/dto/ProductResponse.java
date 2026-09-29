@@ -14,5 +14,8 @@ public class ProductResponse {
 
     }
 
-
+    public Long getId(){return id;}
+    public String getName(){return name;}
+    public double getPrice(){return price;}
+    public String getCategoryName(){return categoryName;}
 }
