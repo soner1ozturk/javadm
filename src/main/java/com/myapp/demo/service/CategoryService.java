@@ -40,6 +40,7 @@ public class CategoryService {
         return toResponse(categoryRepository.save(category));
     }
 
+    @Transactional
     public CategoryResponse update(Long id, CategoryCreateRequest request) {
         Category existing = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
@@ -47,6 +48,7 @@ public class CategoryService {
         return toResponse(categoryRepository.save(existing));
     }
 
+    @Transactional
     public void delete(Long id){
         findById(id);
         categoryRepository.deleteById(id);
