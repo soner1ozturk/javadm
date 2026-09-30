@@ -1,5 +1,4 @@
 package com.myapp.demo.controller;
-import com.myapp.demo.model.Category;
 import com.myapp.demo.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
