@@ -55,6 +55,8 @@ public class ProductService {
         }
         return toResponse(productRepository.save(product));
     }
+
+    @Transactional
     public ProductResponse update(Long id, ProductCreateRequest request) {
         Product existing = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
@@ -63,6 +65,7 @@ public class ProductService {
         return toResponse(productRepository.save(existing));
     }                                                        // ← update ends here
 
+    @Transactional
     public void delete(Long id) {                           // ← delete starts here
         productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
