@@ -27,7 +27,10 @@ public class CategoryService {
     }
 
     public CategoryResponse findById(Long id) {
-        Category category = categoryRepository.findById(id);
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(RuntimeException);
+        return toResponse(category);
+
     }
 
     public Category create(Category category) {
