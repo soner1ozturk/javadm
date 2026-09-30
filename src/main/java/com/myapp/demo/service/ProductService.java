@@ -1,5 +1,6 @@
 package com.myapp.demo.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import com.myapp.demo.dto.ProductCreateRequest;
 import com.myapp.demo.dto.ProductResponse;
 import com.myapp.demo.exception.ProductNotFoundException;
