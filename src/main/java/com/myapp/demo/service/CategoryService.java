@@ -39,7 +39,7 @@ public class CategoryService {
         return toResponse(categoryRepository.save(category));
     }
 
-    public CategoryResponse update(Long id, CategoryResponse request) {
+    public CategoryResponse update(Long id, CategoryCreateRequest request) {
         Category existing = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
         existing.setName(request.getName());
