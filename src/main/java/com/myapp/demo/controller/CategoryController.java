@@ -4,6 +4,8 @@ import com.myapp.demo.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.myapp.demo.dto.CategoryCreateRequest;
+import com.myapp.demo.dto.CategoryResponse;
 
 import java.util.List;
 
