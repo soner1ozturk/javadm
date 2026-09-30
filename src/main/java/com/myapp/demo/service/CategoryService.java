@@ -18,14 +18,16 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> findAll(){
-        return categoryRepository.findAll();
+    public List<CategoryResponse> findAll(){
+        return categoryRepository.findAll()
+                .stream()
+                .map(this::toResponse)
+                .toList();
 
     }
 
-    public Category findById(Long id) {
-        return categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
+    public CategoryResponse findById(Long id) {
+        Category category = categoryRepository.findById(id);
     }
 
     public Category create(Category category) {
