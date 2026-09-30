@@ -37,10 +37,11 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Category update(Long id, Category category) {
-        Category existing = findById(id);
-        existing.setName(category.getName());
-        return categoryRepository.save(existing);
+    public CategoryResponse update(Long id, CategoryResponse request) {
+        Category existing = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
+        existing.setName(request.getName());
+        return toResponse(categoryRepository.save(existing));
     }
 
     public void delete(Long id){
