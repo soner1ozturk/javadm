@@ -1,5 +1,6 @@
 package com.myapp.demo.service;
 
+import com.myapp.demo.dto.CategoryCreateRequest;
 import com.myapp.demo.dto.CategoryResponse;
 import com.myapp.demo.model.Category;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,9 @@ public class CategoryService {
 
     }
 
-    public Category create(Category category) {
-        return categoryRepository.save(category);
+    public CategoryResponse create(CategoryCreateRequest request) {
+        Category category = new Category(request.getName());
+        return toResponse(categoryRepository.save(category));
     }
 
     public CategoryResponse update(Long id, CategoryResponse request) {
