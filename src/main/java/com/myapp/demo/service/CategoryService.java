@@ -1,5 +1,6 @@
 package com.myapp.demo.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import com.myapp.demo.dto.CategoryCreateRequest;
 import com.myapp.demo.dto.CategoryResponse;
 import com.myapp.demo.model.Category;
