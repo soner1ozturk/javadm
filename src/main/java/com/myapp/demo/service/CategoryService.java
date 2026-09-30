@@ -28,7 +28,7 @@ public class CategoryService {
 
     public CategoryResponse findById(Long id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(RuntimeException);
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
         return toResponse(category);
 
     }
