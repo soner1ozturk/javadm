@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,5 +65,13 @@ public class ProductServiceTest {
         assertEquals("Keyboard", response.getName());
         assertEquals(99.99, response.getPrice());
 
+    }
+
+    void findAll_returnsAllProductResponses_whenExist(){
+        List<Product> products = List.of(
+                new Product("Keyboard", 99.99),
+                new Product("Mouse", 49.99)
+        );
+        when(productRepository.findAll()).thenReturn(products);
     }
 }
