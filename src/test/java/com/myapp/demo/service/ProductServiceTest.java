@@ -20,4 +20,12 @@ public class ProductServiceTest {
 
     @Mock
     private ProductRepository productRepository;
+
+    @Mock
+    private CategoryRepository categoryRepository;
+
+    @InjectMocks
+    private ProductService productService;
+
+
 }
