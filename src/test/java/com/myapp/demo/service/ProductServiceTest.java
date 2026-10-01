@@ -37,4 +37,10 @@ public class ProductServiceTest {
         assertEquals("Keyboard",response.getName());
         assertEquals(99.99,response.getPrice());
     }
+
+    @Test
+    void findById_throwsException_whenNotFound(){
+        when(productRepository.findById(99L)).thenReturn(Optional.empty());
+        assertThrows(ProductNotFoundException.class, () -> productService.findById(99L));
+    }
 }
