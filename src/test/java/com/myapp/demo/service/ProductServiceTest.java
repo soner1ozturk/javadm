@@ -52,6 +52,17 @@ public class ProductServiceTest {
 
     @Test
     void create_returnsProductResponse_whenCreated(){
-        ProductCreateRequest request;
+        ProductCreateRequest request = new ProductCreateRequest();
+        request.setName("Keyboard");
+        request.setPrice(99.99);
+
+        Product savedProduct = new Product("Keyboard",99.99);
+        when(productRepository.save(any(Product.class))).thenReturn(savedProduct);
+
+        ProductResponse response = productService.create(request);
+
+        assertEquals("Keyboard", response.getName());
+        assertEquals(99.99, response.getPrice());
+
     }
 }
