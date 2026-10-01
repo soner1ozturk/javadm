@@ -27,5 +27,14 @@ public class ProductServiceTest {
     @InjectMocks
     private ProductService productService;
 
+    @Test
+    void findById_returnsProduct_whenExist(){
+        Product product = new Product("Keyboard", 99.99);
+        when(productRepository.findById(1L)).thenReturn(Optional.of(product));
 
+        ProductResponse response = productService.findById(1L);
+
+        assertEquals("Keyboard",response.getName());
+        assertEquals(99.99,response.getPrice());
+    }
 }
