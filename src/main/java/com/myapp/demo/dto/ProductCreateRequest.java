@@ -16,4 +16,7 @@ public class ProductCreateRequest {
     public String getName(){return name;}
     public double getPrice(){return price;}
     public Long getCategoryId(){return categoryId;}
+
+    public void setName(String name) { this.name = name; }
+    public void setPrice(double price) { this.price = price; }
 }

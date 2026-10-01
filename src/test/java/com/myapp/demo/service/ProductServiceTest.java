@@ -1,4 +1,5 @@
 package com.myapp.demo.service;
+import com.myapp.demo.dto.ProductCreateRequest;
 import com.myapp.demo.dto.ProductResponse;
 import com.myapp.demo.exception.ProductNotFoundException;
 import com.myapp.demo.model.Product;
@@ -24,13 +25,18 @@ public class ProductServiceTest {
     @Mock
     private CategoryRepository categoryRepository;
 
+
     @InjectMocks
     private ProductService productService;
 
+
+
     @Test
     void findById_returnsProduct_whenExist(){
+
         Product product = new Product("Keyboard", 99.99);
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
+
 
         ProductResponse response = productService.findById(1L);
 
@@ -42,5 +48,10 @@ public class ProductServiceTest {
     void findById_throwsException_whenNotFound(){
         when(productRepository.findById(99L)).thenReturn(Optional.empty());
         assertThrows(ProductNotFoundException.class, () -> productService.findById(99L));
+    }
+
+    @Test
+    void create_returnsProductResponse_whenCreated(){
+        ProductCreateRequest request;
     }
 }
