@@ -67,11 +67,17 @@ public class ProductServiceTest {
 
     }
 
+    @Test
     void findAll_returnsAllProductResponses_whenExist(){
         List<Product> products = List.of(
                 new Product("Keyboard", 99.99),
                 new Product("Mouse", 49.99)
         );
         when(productRepository.findAll()).thenReturn(products);
+
+        List<ProductResponse> response = productService.findAll();
+
+        assertEquals(2, response.size());
+        assertEquals("Keyboard", response.get(0).getName());
     }
 }
