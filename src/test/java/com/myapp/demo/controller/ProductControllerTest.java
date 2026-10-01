@@ -17,4 +17,18 @@ public class ProductControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+    @Test
+    void getAll_returnsOk() throws Exception {
+        mockMvc.perform(get("/api/products"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void create_returnsCreated() throws Exception {
+        mockMvc.perform(post("/api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"name\":\"Keyboard\",\"price\":99.99}"))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("Keyboard"));
+    }
 }
