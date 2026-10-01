@@ -15,6 +15,7 @@ import java.util.List;
 @Service
 public class ProductService {
 
+
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
@@ -23,6 +24,7 @@ public class ProductService {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
     }
+
 
     private ProductResponse toResponse(Product product){
         String categoryName = product.getCategory() != null
@@ -38,11 +40,13 @@ public class ProductService {
                 .toList();
     }
 
+
     public ProductResponse findById(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
         return toResponse(product);
     }
+
 
     public ProductResponse create(ProductCreateRequest request) {
         Product product = new Product(request.getName(), request.getPrice());
@@ -54,6 +58,8 @@ public class ProductService {
         return toResponse(productRepository.save(product));
     }
 
+
+
     @Transactional
     public ProductResponse update(Long id, ProductCreateRequest request) {
         Product existing = productRepository.findById(id)
@@ -62,6 +68,7 @@ public class ProductService {
         existing.setPrice(request.getPrice());
         return toResponse(productRepository.save(existing));
     }                                                        // ← update ends here
+
 
     @Transactional
     public void delete(Long id) {                           // ← delete starts here
