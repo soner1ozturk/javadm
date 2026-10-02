@@ -20,7 +20,7 @@ public class User implements UserDetails {
     private String username;
 
     @Column(nullable = false)
-    public String password;
+    private String password;
 
     public User(){
     }
