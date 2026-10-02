@@ -2,7 +2,6 @@ package com.myapp.demo.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
 
@@ -12,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private final long EXPIRATION_MS = 1000 * 60 * 60 * 24;
 
     public String generateToken(String username) {
