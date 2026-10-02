@@ -22,7 +22,6 @@ public class User implements UserDetails {
     @Column(nullable = false)
     public String password;
 
-    //why do we do this empty constructor again
     public User(){
     }
 
@@ -36,7 +35,6 @@ public class User implements UserDetails {
         return id;
     }
 
-    //why do we use override
     @Override
     public String getUsername(){return username;}
 
